@@ -29,7 +29,7 @@ window.addEventListener("DOMContentLoaded",  ()=>{
         response.data.forEach((element,index) => {
             // console.log(element);
             finallist += `<div><span>${element.WebsiteTitle} ></span><span> ${element.WebsiteUrl}</span>
-            <button onclick = "ok()">delete</button><button>edit</button></div>`
+            <button onclick = "ok(i)">delete</button><button>edit</button></div>`
         })
         
             li.innerHTML = finallist;
