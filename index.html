@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        button{
+            cursor: pointer;
+            box-shadow: 0px 0px 2px grey;
+            margin-left: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>Bookmark Website</h1>
+        <form action="">
+            <label for="title">Website Title:</label>
+            <input type="text" name="title">
+            <br></br>
+            <label for="url">Website Url:</label>
+            <input type="text" name="url">
+            <br></br>
+            <button type="submit">Add</button>
+        </form>
+    </div>
+    <div class="showList">
+        <h2>All Bookmark</h2>
+        <div class="list">
+        <!-- <span>Google ></span><span> https</span><button>delete</button><button>edit</button> -->
+    </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"></script>
+    <script src="bokmark.js"></script>
+</body>
+</html>
