@@ -15,30 +15,44 @@ form.addEventListener('submit',(event)=>{
             "WebsiteUrl":url
         }
     )
-    .then(response => console.log(response.data))
+    .then(response => getData())
     .catch(err => console.log(err));
 
-
+    
 })
-window.addEventListener("DOMContentLoaded",  ()=>{
+function getData(){
     axios.get("https://crudcrud.com/api/40aef88290774cb3887e35606be5b7f3/bookmarks")
     .then(response => {
         let finallist ='';
         console.log('finallist');
 
-        response.data.forEach((element,index) => {
+        response.data.forEach((element) => {
             // console.log(element);
+            
             finallist += `<div><span>${element.WebsiteTitle} ></span><span> ${element.WebsiteUrl}</span>
-            <button onclick = "ok(i)">delete</button><button>edit</button></div>`
+            <button onclick = removeFunction('${element._id}')>delete</button><button onclick = editFunction('${element.WebsiteTitle}','${element.WebsiteUrl}','${element._id}')>edit</button></div>`
         })
         
             li.innerHTML = finallist;
         
     })
     .catch(err => console.log(err))
-})
-function ok(i){
-    console.log('jai shree ram');
-    console.log(i);
-
 }
+function removeFunction(idd){
+    axios.delete(`https://crudcrud.com/api/40aef88290774cb3887e35606be5b7f3/bookmarks/${idd}`)
+    .then(response =>{
+        getData()
+    })
+    .catch(err => console.log(err))
+
+    getData()
+}
+
+function editFunction(title, url, idd){
+    document.querySelector('#title').value = title;
+    document.querySelector('#url').value = url;
+
+    removeFunction(idd);
+}
+
+getData();
